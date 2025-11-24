@@ -1,0 +1,175 @@
+{% extends "base.html" %}
+
+{% block title %}উস্তাদের মাসআলা - মাদ্রাসা উম্মুল কুরা{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-gradient-to-b from-green-50 to-white" x-data="masalaListPage()">
+    <!-- Header -->
+    <div class="bg-gradient-to-r from-teal-600 to-teal-700 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+                    <i class="fas fa-scroll mr-3"></i>উস্তাদের মাসআলা
+                </h1>
+                <p class="text-xl text-teal-100">ইসলামিক শিক্ষা, গল্প ও উপদেশ</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- Filters -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <div class="grid md:grid-cols-3 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">বিষয়শ্রেণী</label>
+                    <select x-model="selectedCategory" @change="filterMasala()" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+                        <option value="">সব দেখুন</option>
+                        <template x-for="cat in categories" :key="cat">
+                            <option :value="cat" x-text="cat"></option>
+                        </template>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">অনুসন্ধান</label>
+                    <input type="text" x-model="searchQuery" @input="debounceSearch()" 
+                           placeholder="শিরোনাম অনুসন্ধান করুন..."
+                           class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+                </div>
+            </div>
+        </div>
+
+        <!-- Masala Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            <template x-for="masala in masalaList" :key="masala.id">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+                    <div x-show="masala.image_url" class="h-48 overflow-hidden">
+                        <img :src="masala.image_url" :alt="masala.title" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div x-show="masala.category" class="mb-3">
+                            <span class="inline-block bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-xs font-semibold" x-text="masala.category"></span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 line-clamp-2" x-text="masala.title"></h3>
+                        <p class="text-gray-600 mb-4 line-clamp-3" x-text="masala.excerpt"></p>
+                        <div class="flex items-center justify-between text-sm text-gray-500 mb-4">
+                            <span><i class="fas fa-user mr-1"></i><span x-text="masala.author_name"></span></span>
+                            <span><i class="fas fa-eye mr-1"></i><span x-text="masala.views_count"></span></span>
+                        </div>
+                        <div class="text-xs text-gray-400 mb-4">
+                            <i class="fas fa-calendar mr-1"></i>
+                            <span x-text="new Date(masala.created_at).toLocaleDateString('bn-BD', {year: 'numeric', month: 'long', day: 'numeric'})"></span>
+                        </div>
+                        <a :href="`/masala/${masala.id}`" class="inline-block bg-teal-600 hover:bg-teal-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors w-full text-center">
+                            বিস্তারিত পড়ুন <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </template>
+        </div>
+
+        <!-- No Results -->
+        <div x-show="masalaList.length === 0" class="text-center py-12 bg-white rounded-lg shadow-md">
+            <i class="fas fa-scroll text-gray-400 text-6xl mb-4"></i>
+            <p class="text-gray-600 text-xl">কোনো মাসআলা পাওয়া যায়নি</p>
+        </div>
+
+        <!-- Pagination -->
+        <div x-show="pagination.pages > 1" class="flex justify-center items-center space-x-2 mt-8">
+            <button @click="loadPage(pagination.page - 1)" :disabled="pagination.page === 1"
+                    class="px-4 py-2 border rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50">
+                <i class="fas fa-chevron-left"></i> পূর্ববর্তী
+            </button>
+            
+            <span class="px-4 py-2 text-gray-700">
+                পৃষ্ঠা <span x-text="pagination.page"></span> / <span x-text="pagination.pages"></span>
+            </span>
+            
+            <button @click="loadPage(pagination.page + 1)" :disabled="pagination.page === pagination.pages"
+                    class="px-4 py-2 border rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50">
+                পরবর্তী <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+
+        <!-- Back to Home -->
+        <div class="text-center mt-12">
+            <a href="/" class="inline-block text-teal-600 hover:text-teal-800 font-semibold">
+                <i class="fas fa-arrow-left mr-2"></i>প্রথম পাতায় ফিরে যান
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+function masalaListPage() {
+    return {
+        masalaList: [],
+        categories: [],
+        selectedCategory: '',
+        searchQuery: '',
+        searchTimeout: null,
+        pagination: {
+            page: 1,
+            per_page: 9,
+            total: 0,
+            pages: 0
+        },
+
+        init() {
+            this.loadCategories();
+            this.loadMasala();
+        },
+
+        async loadCategories() {
+            try {
+                const response = await fetch('/api/masala/categories');
+                const data = await response.json();
+                if (data.success) {
+                    this.categories = data.data;
+                }
+            } catch (error) {
+                console.error('Failed to load categories:', error);
+            }
+        },
+
+        async loadMasala() {
+            try {
+                let url = `/api/masala?page=${this.pagination.page}&limit=${this.pagination.per_page}`;
+                if (this.selectedCategory) {
+                    url += `&category=${encodeURIComponent(this.selectedCategory)}`;
+                }
+                
+                const response = await fetch(url);
+                const data = await response.json();
+                
+                if (data.success) {
+                    this.masalaList = data.data;
+                    this.pagination = data.pagination;
+                }
+            } catch (error) {
+                console.error('Failed to load masala:', error);
+            }
+        },
+
+        filterMasala() {
+            this.pagination.page = 1;
+            this.loadMasala();
+        },
+
+        debounceSearch() {
+            clearTimeout(this.searchTimeout);
+            this.searchTimeout = setTimeout(() => {
+                this.filterMasala();
+            }, 500);
+        },
+
+        loadPage(page) {
+            if (page < 1 || page > this.pagination.pages) return;
+            this.pagination.page = page;
+            this.loadMasala();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    };
+}
+</script>
+{% endblock %}

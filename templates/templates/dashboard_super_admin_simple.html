@@ -146,14 +146,20 @@ function smsManagement() {
 
         async loadTeachers() {
             try {
+                console.log('Loading teachers...');
                 const response = await fetch('/api/users/teachers', {
                     credentials: 'same-origin'
                 });
+                console.log('Response status:', response.status);
                 if (response.ok) {
                     const data = await response.json();
+                    console.log('Teachers data:', data);
                     this.teachers = data.data || [];
+                    console.log('Teachers loaded:', this.teachers.length);
                 } else {
                     console.error('Failed to load teachers:', response.status);
+                    const errorText = await response.text();
+                    console.error('Error response:', errorText);
                     this.teachers = [];
                 }
             } catch (error) {

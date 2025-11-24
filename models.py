@@ -664,3 +664,46 @@ class Document(db.Model):
             'created_at': self.created_at.isoformat() if self.created_at else None,
             'updated_at': self.updated_at.isoformat() if self.updated_at else None
         }
+
+
+# Masala (Stories/Articles by Teachers)
+class Masala(db.Model):
+    """
+    Masala - Islamic stories, lessons, and articles posted by teachers
+    Can be shared on Facebook and other social media
+    """
+    __tablename__ = 'masala'
+    
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(255), nullable=False)
+    content = db.Column(db.Text, nullable=False)
+    excerpt = db.Column(db.String(500))  # Short preview for listings
+    author_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    category = db.Column(db.String(100))  # e.g., "Islamic Story", "Lesson", "Advice"
+    image_url = db.Column(db.String(500))  # Optional featured image
+    is_published = db.Column(db.Boolean, default=True, nullable=False)
+    views_count = db.Column(db.Integer, default=0)
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    
+    # Relationships
+    author = db.relationship('User', backref=db.backref('masala_posts', lazy='dynamic'))
+    
+    def __repr__(self):
+        return f'<Masala {self.id}: {self.title}>'
+    
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'title': self.title,
+            'content': self.content,
+            'excerpt': self.excerpt or (self.content[:200] + '...' if len(self.content) > 200 else self.content),
+            'author_id': self.author_id,
+            'author_name': self.author.full_name if self.author else 'Unknown',
+            'category': self.category,
+            'image_url': self.image_url,
+            'is_published': self.is_published,
+            'views_count': self.views_count,
+            'created_at': self.created_at.isoformat() if self.created_at else None,
+            'updated_at': self.updated_at.isoformat() if self.updated_at else None
+        }

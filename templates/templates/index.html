@@ -3,409 +3,363 @@
 {% block title %}মাদ্রাসা উম্মুল কুরা - ইসলামিক শিক্ষা প্রতিষ্ঠান{% endblock %}
 
 {% block content %}
+<!-- Hero Section with Green Background -->
 <div class="min-h-screen bg-gradient-to-br from-green-600 via-green-700 to-green-800">
-    <!-- Hero Section -->
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <!-- Islamic Header with Bismillah -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        
+        <!-- Bismillah -->
         <div class="text-center mb-8">
-            <div class="text-white text-4xl md:text-5xl mb-4 font-arabic">
+            <div class="text-white text-3xl md:text-4xl mb-3 font-arabic">
                 بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
             </div>
-            <p class="text-green-100 text-lg">বিসমিল্লাহির রাহমানির রাহিম</p>
-        </div>
-
-        <!-- Service Icons Row -->
-        <div class="flex justify-center mb-12">
-            <div class="bg-white rounded-2xl p-4 shadow-xl">
-                <div class="flex space-x-4">
-                    <div class="bg-green-600 p-4 rounded-xl">
-                        <i class="fas fa-quran text-white text-xl"></i>
-                    </div>
-                    <div class="bg-amber-600 p-4 rounded-xl">
-                        <i class="fas fa-mosque text-white text-xl"></i>
-                    </div>
-                    <div class="bg-teal-600 p-4 rounded-xl">
-                        <i class="fas fa-book-open text-white text-xl"></i>
-                    </div>
-                </div>
-            </div>
+            <p class="text-green-100">বিসমিল্লাহির রাহমানির রাহিম</p>
         </div>
 
         <!-- Main Title -->
-        <div class="text-center text-white mb-16">
-            <h1 class="text-5xl md:text-6xl font-bold mb-6">মাদ্রাসা উম্মুল কুরা</h1>
-            <h2 class="text-2xl md:text-3xl font-semibold text-yellow-300 mb-4">ইসলামিক শিক্ষা ও প্রশিক্ষণ কেন্দ্র</h2>
-            <p class="text-lg text-green-100">বেবি ক্লাস থেকে ৫ম শ্রেণী পর্যন্ত ইসলামিক ও সাধারণ শিক্ষা</p>
+        <div class="text-center text-white mb-12">
+            <div class="flex justify-center mb-6">
+                <div class="bg-white rounded-full p-4 shadow-xl">
+                    <i class="fas fa-mosque text-green-600 text-4xl"></i>
+                </div>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">মাদ্রাসা উম্মুল কুরা</h1>
+            <h2 class="text-xl md:text-2xl text-yellow-300 mb-3">ইসলামিক শিক্ষা ও প্রশিক্ষণ কেন্দ্র</h2>
+            <p class="text-green-100">বেবি ক্লাস থেকে ৩য় শ্রেণী পর্যন্ত সম্পূর্ণ ইসলামিক ও সাধারণ শিক্ষা</p>
         </div>
 
-        <!-- Service Cards -->
-        <div class="grid md:grid-cols-3 gap-8 mb-16">
-            <!-- Quranic Education -->
-            <div class="bg-white rounded-2xl p-8 shadow-xl text-center hover:transform hover:scale-105 transition-all duration-300">
-                <div class="bg-green-600 p-4 rounded-xl w-16 h-16 mx-auto mb-6 flex items-center justify-center">
-                    <i class="fas fa-quran text-white text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-bold text-gray-800 mb-4">কুরআন শিক্ষা</h3>
-                <p class="text-gray-600">সহীহ তিলাওয়াত, তাজবীদ ও হিফজুল কুরআন</p>
-            </div>
-
-            <!-- Islamic Studies -->
-            <div class="bg-white rounded-2xl p-8 shadow-xl text-center hover:transform hover:scale-105 transition-all duration-300">
-                <div class="bg-amber-600 p-4 rounded-xl w-16 h-16 mx-auto mb-6 flex items-center justify-center">
-                    <i class="fas fa-mosque text-white text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-bold text-gray-800 mb-4">ইসলামিক শিক্ষা</h3>
-                <p class="text-gray-600">আকাইদ, ফিকহ, হাদীস ও ইসলামিক নৈতিকতা</p>
-            </div>
-
-            <!-- General Education -->
-            <div class="bg-white rounded-2xl p-8 shadow-xl text-center hover:transform hover:scale-105 transition-all duration-300">
-                <div class="bg-teal-600 p-4 rounded-xl w-16 h-16 mx-auto mb-6 flex items-center justify-center">
-                    <i class="fas fa-book-open text-white text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-bold text-gray-800 mb-4">সাধারণ শিক্ষা</h3>
-                <p class="text-gray-600">বাংলা, ইংরেজি, গণিত, বিজ্ঞান ও সাধারণ জ্ঞান</p>
-            </div>
-        </div>
-
-        <!-- Top Performers of the Month Section -->
-        <div id="topPerformersSection" class="mb-16" style="display: none;">
+        <!-- ৩টি স্টাডি মোড - Main Feature -->
+        <div class="mb-12">
             <div class="text-center mb-8">
-                <h2 class="text-3xl font-bold text-white mb-2">
-                    <i class="fas fa-star text-yellow-300 mr-2"></i>
-                    মাসের সেরা শিক্ষার্থী
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-2">
+                    মাদরাসার শিক্ষা কার্যক্রম
                 </h2>
-                <p class="text-green-100">সফলতার স্বীকৃতি</p>
+                <div class="inline-block bg-yellow-400 text-gray-900 px-6 py-2 rounded-full font-bold text-xl">
+                    ৩টি স্টাডি মোড
+                </div>
+            </div>
+
+            <!-- Three Study Modes Cards -->
+            <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+                
+                <!-- 1. নিয়মিত ছাত্রছাত্রী -->
+                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
+                    <div class="bg-gradient-to-br from-blue-600 to-blue-700 p-6 text-center">
+                        <div class="bg-white w-16 h-16 rounded-full mx-auto mb-3 flex items-center justify-center">
+                            <i class="fas fa-school text-blue-600 text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-1">📘 নিয়মিত ছাত্রছাত্রী</h3>
+                        <p class="text-blue-100 text-sm">(বেবি ক্লাস - ৩য় শ্রেণী)</p>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 mb-4 text-sm leading-relaxed">
+                            আমাদের মাদরাসায় বেবি ক্লাস থেকে ৩য় শ্রেণি পর্যন্ত নিয়মিত পড়াশোনার ব্যবস্থা রয়েছে। 
+                            এখানে শিক্ষার্থীরা প্রতিদিন শ্রেণিকক্ষে উপস্থিত থেকে নিম্নলিখিত বিষয়গুলো শিখবে:
+                        </p>
+                        <h4 class="font-bold text-blue-700 mb-2">বিষয়সমূহ:</h4>
+                        <ul class="space-y-1 text-sm text-gray-700 mb-4">
+                            <li>✓ বাংলা</li>
+                            <li>✓ ইংরেজি</li>
+                            <li>✓ গণিত</li>
+                            <li>✓ আরবি</li>
+                            <li>✓ ইসলামী আদর্শ ও নৈতিক শিক্ষা</li>
+                            <li>✓ কুরআন তিলাওয়াত (নজরা)</li>
+                        </ul>
+                        <div class="bg-blue-50 rounded-lg p-3 text-xs text-gray-600">
+                            <strong>বিশেষত্ব:</strong> সম্পূর্ণ সিলেবাসভিত্তিক শিক্ষা এবং নিয়মিত পরীক্ষা, উপস্থিতি ও প্রগ্রেস রিপোর্ট।
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. অন্যান্য প্রতিষ্ঠানের শিক্ষার্থী -->
+                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden border-4 border-amber-400">
+                    <div class="bg-gradient-to-br from-amber-500 to-amber-600 p-6 text-center relative">
+                        <div class="absolute top-2 right-2 bg-white text-amber-600 px-2 py-1 rounded-full text-xs font-bold">
+                            জনপ্রিয়
+                        </div>
+                        <div class="bg-white w-16 h-16 rounded-full mx-auto mb-3 flex items-center justify-center">
+                            <i class="fas fa-user-clock text-amber-600 text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-1">🕌 অন্যান্য প্রতিষ্ঠানের শিক্ষার্থী</h3>
+                        <p class="text-amber-100 text-sm">ইসলামিক শিক্ষার জন্য</p>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 mb-4 text-sm leading-relaxed">
+                            যেসব ছাত্র-ছাত্রী স্কুল/কলেজ/মাদরাসা অন্যত্র পড়ে, কিন্তু আরবি, কুরআন, নামাজ, 
+                            মাসনূন দোয়া বা ইসলামী বিষয় জানতে চায় তাদের জন্য এই বিশেষ কোর্স।
+                        </p>
+                        <h4 class="font-bold text-amber-700 mb-2">এখানে শেখানো হয়:</h4>
+                        <ul class="space-y-1 text-sm text-gray-700 mb-4">
+                            <li>✓ কুরআনের মৌলিক তিলাওয়াত</li>
+                            <li>✓ নামাজ শিক্ষা</li>
+                            <li>✓ দৈনন্দিন মাসনূন দোয়া</li>
+                            <li>✓ আরবি বর্ণমালা ও মৌলিক আরবি</li>
+                            <li>✓ ইসলামী আদর্শ, আক্বিদাহ ও নৈতিক শিক্ষা</li>
+                        </ul>
+                        <div class="bg-amber-50 rounded-lg p-3 text-xs text-gray-600">
+                            <strong>সুবিধা:</strong> সময় অনুযায়ী নমনীয়, যাতে অন্য প্রতিষ্ঠানের শিক্ষার্থীরা সুবিধামতো ক্লাসে যোগ দিতে পারে।
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. হিফজুল কুরআন -->
+                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
+                    <div class="bg-gradient-to-br from-green-600 to-green-700 p-6 text-center">
+                        <div class="bg-white w-16 h-16 rounded-full mx-auto mb-3 flex items-center justify-center">
+                            <i class="fas fa-quran text-green-600 text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-1">📖 হিফজুল কুরআন বিভাগ</h3>
+                        <p class="text-green-100 text-sm">Hifz Program</p>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 mb-4 text-sm leading-relaxed">
+                            যারা পবিত্র কুরআন হিফজ করতে আগ্রহী তাদের জন্য আলাদা হিফজ বিভাগ রয়েছে।
+                        </p>
+                        <h4 class="font-bold text-green-700 mb-2">এখানে রয়েছে:</h4>
+                        <ul class="space-y-1 text-sm text-gray-700 mb-4">
+                            <li>✓ অভিজ্ঞ হাফেজ শিক্ষকের অধীনে হিফজ শিক্ষা</li>
+                            <li>✓ হিফজ, সাবক, সাবক শক্ত করা—তিন ধাপে পূর্ণ প্রশিক্ষণ</li>
+                            <li>✓ নিয়মিত তাকরার ও মূল্যায়ন</li>
+                            <li>✓ শৃঙ্খলাপূর্ণ শিক্ষাব্যবস্থা</li>
+                        </ul>
+                        <div class="bg-green-50 rounded-lg p-3 text-xs text-gray-600">
+                            <strong>লক্ষ্য:</strong> হিফজ বিভাগে শিক্ষার্থীরা সুশৃঙ্খল ও লক্ষ্যভিত্তিক পরিকল্পনায় হিফজ সম্পন্ন করতে পারে।
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Call to Action Buttons -->
+        <div class="text-center mb-12">
+            <p class="text-xl text-white mb-6">আপনার সন্তানের ইসলামিক ও সাধারণ শিক্ষার যাত্রা শুরু করুন</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/login" class="bg-amber-500 hover:bg-amber-600 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-xl transition-all duration-300 transform hover:scale-105 inline-block">
+                    <i class="fas fa-user-graduate mr-2"></i>শিক্ষার্থী লগইন
+                </a>
+                <a href="/login" class="bg-white text-green-700 px-8 py-4 rounded-xl font-semibold text-lg shadow-xl transition-all duration-300 transform hover:scale-105 border-2 border-white hover:bg-green-50 inline-block">
+                    <i class="fas fa-chalkboard-teacher mr-2"></i>উস্তাদ লগইন
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- শ্রেণী ও বিষয়সমূহ Section (White Background) -->
+<div class="bg-gradient-to-b from-green-50 to-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">শ্রেণী ও বিষয়সমূহ</h2>
+            <p class="text-lg text-green-600 font-semibold">বেবি ক্লাস থেকে ৩য় শ্রেণী পর্যন্ত</p>
+        </div>
+        
+        <!-- Classes Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            <!-- Baby Class -->
+            <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-green-500">
+                <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fas fa-baby text-green-600 mr-3"></i>
+                    বেবি ক্লাস
+                </h3>
+                <ul class="space-y-2 text-gray-700">
+                    <li><i class="fas fa-check text-green-500 mr-2"></i>বাংলা</li>
+                    <li><i class="fas fa-check text-green-500 mr-2"></i>ইংরেজি</li>
+                    <li><i class="fas fa-check text-green-500 mr-2"></i>গণিত</li>
+                    <li><i class="fas fa-check text-green-500 mr-2"></i>আরবি</li>
+                </ul>
             </div>
             
-            <div id="topPerformersContainer" class="space-y-8">
-                <!-- Featured exam results will be inserted here dynamically -->
+            <!-- Class 1 -->
+            <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-amber-500">
+                <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fas fa-child text-amber-600 mr-3"></i>
+                    প্রথম শ্রেণী
+                </h3>
+                <ul class="space-y-2 text-gray-700">
+                    <li><i class="fas fa-check text-amber-500 mr-2"></i>বাংলা</li>
+                    <li><i class="fas fa-check text-amber-500 mr-2"></i>ইংরেজি</li>
+                    <li><i class="fas fa-check text-amber-500 mr-2"></i>গণিত</li>
+                    <li><i class="fas fa-check text-amber-500 mr-2"></i>আরবি</li>
+                </ul>
+            </div>
+            
+            <!-- Class 2 -->
+            <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-teal-500">
+                <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fas fa-book-reader text-teal-600 mr-3"></i>
+                    দ্বিতীয় শ্রেণী
+                </h3>
+                <ul class="space-y-2 text-gray-700">
+                    <li><i class="fas fa-check text-teal-500 mr-2"></i>বাংলা</li>
+                    <li><i class="fas fa-check text-teal-500 mr-2"></i>ইংরেজি</li>
+                    <li><i class="fas fa-check text-teal-500 mr-2"></i>গণিত</li>
+                    <li><i class="fas fa-check text-teal-500 mr-2"></i>আরবি</li>
+                </ul>
+            </div>
+            
+            <!-- Class 3 -->
+            <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-blue-500">
+                <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fas fa-user-graduate text-blue-600 mr-3"></i>
+                    তৃতীয় শ্রেণী
+                </h3>
+                <ul class="space-y-2 text-gray-700">
+                    <li><i class="fas fa-check text-blue-500 mr-2"></i>বাংলা</li>
+                    <li><i class="fas fa-check text-blue-500 mr-2"></i>ইংরেজি</li>
+                    <li><i class="fas fa-check text-blue-500 mr-2"></i>গণিত</li>
+                    <li><i class="fas fa-check text-blue-500 mr-2"></i>আরবি</li>
+                </ul>
             </div>
         </div>
+        
+        <!-- Additional Activities -->
+        <div class="bg-gradient-to-r from-green-100 to-teal-100 rounded-2xl p-8">
+            <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">
+                <i class="fas fa-star text-yellow-500 mr-2"></i>
+                অতিরিক্ত কার্যক্রম
+            </h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-white rounded-lg p-4 text-center shadow">
+                    <i class="fas fa-pray text-green-600 text-3xl mb-2"></i>
+                    <p class="font-semibold text-gray-800">দৈনিক নামাজ প্রশিক্ষণ</p>
+                </div>
+                <div class="bg-white rounded-lg p-4 text-center shadow">
+                    <i class="fas fa-quran text-amber-600 text-3xl mb-2"></i>
+                    <p class="font-semibold text-gray-800">কুরআন তিলাওয়াত প্রতিযোগিতা</p>
+                </div>
+                <div class="bg-white rounded-lg p-4 text-center shadow">
+                    <i class="fas fa-hands-helping text-teal-600 text-3xl mb-2"></i>
+                    <p class="font-semibold text-gray-800">নৈতিক শিক্ষা ও আদব</p>
+                </div>
+                <div class="bg-white rounded-lg p-4 text-center shadow">
+                    <i class="fas fa-book-open text-blue-600 text-3xl mb-2"></i>
+                    <p class="font-semibold text-gray-800">হাদীস মুখস্থকরণ</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-        <!-- Call to Action -->
+<!-- উস্তাদের মাসআলা - Prominent Feature Card -->
+<div class="bg-gradient-to-br from-teal-500 via-teal-600 to-cyan-600 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-8">
+            <div class="bg-white w-24 h-24 rounded-full mx-auto mb-6 flex items-center justify-center shadow-2xl animate-pulse">
+                <i class="fas fa-scroll text-teal-600 text-5xl"></i>
+            </div>
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+                উস্তাদের মাসআলা
+            </h2>
+            <div class="inline-block bg-yellow-400 text-gray-900 px-8 py-3 rounded-full font-bold text-xl mb-6 shadow-lg">
+                ইসলামিক জ্ঞান ভাণ্ডার
+            </div>
+            <p class="text-white text-xl mb-8 max-w-4xl mx-auto leading-relaxed">
+                আমাদের সম্মানিত উস্তাদগণের লেখা ইসলামিক গল্প, হাদিস, সীরাহ, দোয়া এবং জীবনের বিভিন্ন বিষয়ে শিক্ষামূলক মাসআলা পড়ুন। 
+                প্রতিদিন নতুন নতুন ইসলামিক জ্ঞান অর্জন করুন এবং Facebook-এ শেয়ার করে অন্যদের উপকৃত করুন।
+            </p>
+        </div>
+
+        <!-- Latest 3 Masala Posts Preview -->
+        <div id="masalaPreviewHome" class="grid md:grid-cols-3 gap-8 mb-10">
+            <!-- Will be loaded via JavaScript -->
+        </div>
+
+        <!-- Action Buttons -->
         <div class="text-center">
-            <p class="text-xl text-white mb-8">আপনার সন্তানের ইসলামিক ও সাধারণ শিক্ষার যাত্রা শুরু করুন</p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button onclick="openLoginModal('student')" class="bg-amber-500 hover:bg-amber-600 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-xl transition-all duration-300 transform hover:scale-105">
-                    <i class="fas fa-user-graduate mr-3"></i>শিক্ষার্থী লগইন
-                </button>
-                <button onclick="openLoginModal('teacher')" class="bg-white text-green-700 px-8 py-4 rounded-xl font-semibold text-lg shadow-xl transition-all duration-300 transform hover:scale-105 border-2 border-white hover:bg-green-50">
-                    <i class="fas fa-chalkboard-teacher mr-3"></i>উস্তাদ লগইন
-                </button>
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="/masala" class="inline-flex items-center bg-white text-teal-700 px-12 py-5 rounded-2xl font-bold text-2xl hover:bg-teal-50 transition-all shadow-2xl hover:shadow-xl transform hover:scale-105">
+                    <i class="fas fa-book-open mr-3"></i>সব মাসআলা পড়ুন
+                </a>
+                <a href="/masala" class="inline-flex items-center bg-yellow-400 text-gray-900 px-12 py-5 rounded-2xl font-bold text-2xl hover:bg-yellow-300 transition-all shadow-2xl hover:shadow-xl transform hover:scale-105">
+                    <i class="fas fa-fire mr-3"></i>সর্বশেষ পোস্ট
+                </a>
             </div>
         </div>
     </div>
 </div>
 
 <script>
-// Load top performers on page load
+// Load masala preview on homepage
 document.addEventListener('DOMContentLoaded', function() {
-    loadTopPerformers();
+    loadMasalaPreview();
 });
 
-async function loadTopPerformers() {
+async function loadMasalaPreview() {
     try {
-        const response = await fetch('/api/monthly-exams/homepage-top-performers');
+        const response = await fetch('/api/masala?limit=3');
         const data = await response.json();
         
-        if (data.success && data.data.featured_results && data.data.featured_results.length > 0) {
-            const container = document.getElementById('topPerformersContainer');
-            const section = document.getElementById('topPerformersSection');
-            
-            container.innerHTML = '';
-            
-            data.data.featured_results.forEach(exam => {
-                const examCard = document.createElement('div');
-                examCard.className = 'bg-white rounded-2xl shadow-xl p-6';
-                
-                let studentsHTML = '';
-                exam.top_students.forEach((student, index) => {
-                    const medalEmoji = index === 0 ? '🥇' : (index === 1 ? '🥈' : '🥉');
-                    const bgColor = index === 0 ? 'bg-yellow-50' : (index === 1 ? 'bg-gray-50' : 'bg-orange-50');
-                    
-                    studentsHTML += `
-                        <div class="${bgColor} rounded-xl p-4 flex items-center justify-between">
-                            <div class="flex items-center space-x-4">
-                                <div class="text-4xl">${medalEmoji}</div>
-                                <div>
-                                    <div class="font-bold text-gray-800 text-lg">${student.student_name}</div>
-                                    <div class="text-sm text-gray-600">Roll: ${student.roll_number || 'N/A'}</div>
-                                </div>
-                            </div>
-                            <div class="text-right">
-                                <div class="text-2xl font-bold text-blue-600">${student.percentage}%</div>
-                                <div class="text-sm text-gray-600">${student.total_marks}/${student.total_possible}</div>
-                                <div class="text-sm font-semibold text-green-600">Grade: ${student.grade}</div>
-                            </div>
+        if (data.success && data.data.length > 0) {
+            const container = document.getElementById('masalaPreviewHome');
+            container.innerHTML = data.data.map(masala => `
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all transform hover:scale-105">
+                    ${masala.image_url ? `<div class="h-48 overflow-hidden"><img src="${masala.image_url}" alt="${masala.title}" class="w-full h-full object-cover"></div>` : ''}
+                    <div class="p-6">
+                        <div class="mb-3">
+                            <span class="inline-block bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-xs font-semibold">${masala.category || 'মাসআলা'}</span>
                         </div>
-                    `;
-                });
-                
-                examCard.innerHTML = `
-                    <div class="mb-4">
-                        <h3 class="text-2xl font-bold text-gray-800">${exam.exam_title}</h3>
-                        <p class="text-gray-600">${exam.batch_name} - ${exam.month}/${exam.year}</p>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 line-clamp-2">${masala.title}</h3>
+                        <p class="text-gray-600 mb-4 text-sm line-clamp-3">${masala.excerpt}</p>
+                        <div class="flex items-center justify-between text-xs text-gray-500 mb-4">
+                            <span><i class="fas fa-user mr-1"></i>${masala.author_name}</span>
+                            <span><i class="fas fa-eye mr-1"></i>${masala.views_count}</span>
+                        </div>
+                        <a href="/masala/${masala.id}" class="block bg-teal-600 hover:bg-teal-700 text-white px-6 py-3 rounded-xl font-semibold text-center transition-colors">
+                            বিস্তারিত পড়ুন <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
                     </div>
-                    <div class="space-y-3">
-                        ${studentsHTML}
-                    </div>
-                `;
-                
-                container.appendChild(examCard);
-            });
-            
-            // Show the section
-            section.style.display = 'block';
+                </div>
+            `).join('');
+        } else {
+            document.getElementById('masalaPreviewHome').innerHTML = `
+                <div class="col-span-3 text-center py-12 bg-white bg-opacity-20 rounded-2xl backdrop-blur-sm">
+                    <i class="fas fa-scroll text-white text-6xl mb-4 opacity-50"></i>
+                    <p class="text-white text-xl">শীঘ্রই মাসআলা যুক্ত করা হবে...</p>
+                </div>
+            `;
         }
     } catch (error) {
-        console.error('Failed to load top performers:', error);
+        console.error('Failed to load masala preview:', error);
     }
 }
 </script>
 
-<!-- Login Modal -->
-<div id="loginModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
-    <div class="flex items-center justify-center min-h-screen p-4">
-        <div class="bg-white rounded-2xl shadow-xl max-w-md w-full p-8">
-            <div class="text-center mb-6">
-                <h2 id="modalTitle" class="text-2xl font-bold text-gray-800">লগইন</h2>
-                <p class="text-gray-600 mt-2">প্রবেশ করতে আপনার তথ্য দিন</p>
+<!-- Footer -->
+<footer class="bg-gradient-to-r from-green-900 to-green-800 text-white py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-6">
+            <div class="flex items-center justify-center mb-4">
+                <div class="bg-amber-500 p-2 rounded-lg mr-3">
+                    <i class="fas fa-mosque text-white"></i>
+                </div>
+                <h3 class="text-xl font-bold">মাদ্রাসা উম্মুল কুরা</h3>
             </div>
-            <form id="loginForm" onsubmit="return handleLogin(event)">
-                <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2">মোবাইল নম্বর</label>
-                    <input type="tel" id="phoneNumber" name="phoneNumber" required 
-                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-green-500" 
-                           placeholder="মোবাইল নম্বর লিখুন">
-                </div>
-                <div class="mb-6">
-                    <label class="block text-gray-700 text-sm font-bold mb-2">পাসওয়ার্ড</label>
-                    <input type="password" id="password" name="password" required 
-                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-green-500" 
-                           placeholder="পাসওয়ার্ড লিখুন">
-                </div>
-                <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg font-semibold transition-all duration-300">
-                    লগইন করুন
-                </button>
-            </form>
-            <button onclick="closeLoginModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
-                <i class="fas fa-times text-xl"></i>
-            </button>
+            <p class="text-green-200 mb-2">ইসলামিক শিক্ষা ও প্রশিক্ষণ কেন্দ্র</p>
+            
+            <!-- Contact Information -->
+            <div class="space-y-3 mb-6">
+                <p class="text-green-200">
+                    <i class="fas fa-map-marker-alt mr-2 text-amber-400"></i>
+                    মহাদেবপুর গার্লস স্কুল মোড়
+                </p>
+                <p class="text-green-200">
+                    <i class="fas fa-phone-alt mr-2 text-amber-400"></i>
+                    <a href="tel:01712227754" class="hover:text-amber-300 transition-colors">০১৭১২২২৭৭৫৪</a>
+                </p>
+                <p class="text-green-200">
+                    <i class="fas fa-envelope mr-2 text-amber-400"></i>
+                    <a href="mailto:mshfiqul490@gmail.com" class="hover:text-amber-300 transition-colors">mshfiqul490@gmail.com</a>
+                </p>
+            </div>
+        </div>
+        
+        <div class="border-t border-green-700 pt-4 text-center">
+            <p class="text-green-300 text-sm mb-2">
+                "তোমরা জ্ঞান অর্জন কর, কেননা জ্ঞান অর্জন করা প্রতিটি মুসলিমের জন্য ফরজ"
+            </p>
+            <p class="text-green-400 text-sm">© ২০২৫ সর্বস্বত্ব সংরক্ষিত | Developed by Sahid Rahman</p>
         </div>
     </div>
-</div>
-
-<script>
-let currentLoginType = 'student';
-
-function openLoginModal(type) {
-    currentLoginType = type;
-    const modal = document.getElementById('loginModal');
-    const title = document.getElementById('modalTitle');
-    
-    if (type === 'student') {
-        title.textContent = 'শিক্ষার্থী লগইন';
-    } else {
-        title.textContent = 'উস্তাদ লগইন';
-    }
-    
-    modal.classList.remove('hidden');
-}
-
-function closeLoginModal() {
-    document.getElementById('loginModal').classList.add('hidden');
-    document.getElementById('loginForm').reset();
-}
-
-function handleLogin(event) {
-    event.preventDefault();
-    
-    const phoneNumber = document.getElementById('phoneNumber').value;
-    const password = document.getElementById('password').value;
-    
-    // Create form data and submit
-    const form = document.createElement('form');
-    form.method = 'POST';
-    form.action = '{{ url_for("auth.login") }}';
-    
-    const phoneInput = document.createElement('input');
-    phoneInput.type = 'hidden';
-    phoneInput.name = 'phoneNumber';
-    phoneInput.value = phoneNumber;
-    
-    const passwordInput = document.createElement('input');
-    passwordInput.type = 'hidden';
-    passwordInput.name = 'password';
-    passwordInput.value = password;
-    
-    form.appendChild(phoneInput);
-    form.appendChild(passwordInput);
-    document.body.appendChild(form);
-    form.submit();
-    
-    return false;
-}
-
-// Close modal when clicking outside
-document.getElementById('loginModal').addEventListener('click', function(e) {
-    if (e.target === this) {
-        closeLoginModal();
-    }
-});
-</script>
-
-    <!-- Classes & Subjects Section -->
-    <div class="bg-gradient-to-b from-green-50 to-white py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">শ্রেণী ও বিষয়সমূহ</h2>
-                <p class="text-lg text-green-600 font-semibold">বেবি ক্লাস থেকে ৫ম শ্রেণী পর্যন্ত</p>
-            </div>
-            
-            <!-- Classes Grid -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-                <!-- Baby Class -->
-                <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-green-500">
-                    <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
-                        <i class="fas fa-baby text-green-600 mr-3"></i>
-                        বেবি ক্লাস
-                    </h3>
-                    <ul class="space-y-2 text-gray-700">
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>আরবি বর্ণমালা</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>বাংলা বর্ণমালা</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>ছড়া ও নৈতিক শিক্ষা</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>মৌলিক দোয়া ও সুরা</li>
-                    </ul>
-                </div>
-                
-                <!-- Class 1 -->
-                <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-amber-500">
-                    <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
-                        <i class="fas fa-child text-amber-600 mr-3"></i>
-                        প্রথম শ্রেণী
-                    </h3>
-                    <ul class="space-y-2 text-gray-700">
-                        <li><i class="fas fa-check text-amber-500 mr-2"></i>কুরআন শিক্ষা (নাযেরা)</li>
-                        <li><i class="fas fa-check text-amber-500 mr-2"></i>বাংলা</li>
-                        <li><i class="fas fa-check text-amber-500 mr-2"></i>গণিত</li>
-                        <li><i class="fas fa-check text-amber-500 mr-2"></i>আকাইদ ও ফিকহ</li>
-                    </ul>
-                </div>
-                
-                <!-- Class 2 -->
-                <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-teal-500">
-                    <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
-                        <i class="fas fa-book-reader text-teal-600 mr-3"></i>
-                        দ্বিতীয় শ্রেণী
-                    </h3>
-                    <ul class="space-y-2 text-gray-700">
-                        <li><i class="fas fa-check text-teal-500 mr-2"></i>কুরআন শিক্ষা (নাযেরা)</li>
-                        <li><i class="fas fa-check text-teal-500 mr-2"></i>বাংলা ও ইংরেজি</li>
-                        <li><i class="fas fa-check text-teal-500 mr-2"></i>গণিত</li>
-                        <li><i class="fas fa="check text-teal-500 mr-2"></i>আরবি ব্যাকরণ</li>
-                    </ul>
-                </div>
-                
-                <!-- Class 3 -->
-                <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-blue-500">
-                    <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
-                        <i class="fas fa-user-graduate text-blue-600 mr-3"></i>
-                        তৃতীয় শ্রেণী
-                    </h3>
-                    <ul class="space-y-2 text-gray-700">
-                        <li><i class="fas fa-check text-blue-500 mr-2"></i>কুরআন তাজবীদসহ</li>
-                        <li><i class="fas fa-check text-blue-500 mr-2"></i>বাংলা, ইংরেজি, গণিত</li>
-                        <li><i class="fas fa-check text-blue-500 mr-2"></i>আরবি ব্যাকরণ</li>
-                        <li><i class="fas fa-check text-blue-500 mr-2"></i>হাদীস ও ফিকহ</li>
-                    </ul>
-                </div>
-                
-                <!-- Class 4 -->
-                <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-purple-500">
-                    <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
-                        <i class="fas fa-quran text-purple-600 mr-3"></i>
-                        চতুর্থ শ্রেণী
-                    </h3>
-                    <ul class="space-y-2 text-gray-700">
-                        <li><i class="fas fa-check text-purple-500 mr-2"></i>কুরআন (হিফজ শুরু)</li>
-                        <li><i class="fas fa-check text-purple-500 mr-2"></i>সকল সাধারণ বিষয়</li>
-                        <li><i class="fas fa-check text-purple-500 mr-2"></i>আরবি সাহিত্য</li>
-                        <li><i class="fas fa-check text-purple-500 mr-2"></i>ইসলামের ইতিহাস</li>
-                    </ul>
-                </div>
-                
-                <!-- Class 5 -->
-                <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-rose-500">
-                    <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
-                        <i class="fas fa-mosque text-rose-600 mr-3"></i>
-                        পঞ্চম শ্রেণী
-                    </h3>
-                    <ul class="space-y-2 text-gray-700">
-                        <li><i class="fas fa-check text-rose-500 mr-2"></i>কুরআন হিফজ</li>
-                        <li><i class="fas fa-check text-rose-500 mr-2"></i>বাংলা, ইংরেজি, গণিত, বিজ্ঞান</li>
-                        <li><i class="fas fa-check text-rose-500 mr-2"></i>উচ্চতর আরবি ব্যাকরণ</li>
-                        <li><i class="fas fa-check text-rose-500 mr-2"></i>হাদীস ও সীরাহ</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <!-- Additional Activities -->
-            <div class="bg-gradient-to-r from-green-100 to-teal-100 rounded-2xl p-8">
-                <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">
-                    <i class="fas fa-star text-yellow-500 mr-2"></i>
-                    অতিরিক্ত কার্যক্রম
-                </h3>
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-                    <div class="bg-white rounded-lg p-4 text-center shadow">
-                        <i class="fas fa-pray text-green-600 text-3xl mb-2"></i>
-                        <p class="font-semibold text-gray-800">দৈনিক নামাজ প্রশিক্ষণ</p>
-                    </div>
-                    <div class="bg-white rounded-lg p-4 text-center shadow">
-                        <i class="fas fa-quran text-amber-600 text-3xl mb-2"></i>
-                        <p class="font-semibold text-gray-800">কুরআন তিলাওয়াত প্রতিযোগিতা</p>
-                    </div>
-                    <div class="bg-white rounded-lg p-4 text-center shadow">
-                        <i class="fas fa-hands-helping text-teal-600 text-3xl mb-2"></i>
-                        <p class="font-semibold text-gray-800">নৈতিক শিক্ষা ও আদব</p>
-                    </div>
-                    <div class="bg-white rounded-lg p-4 text-center shadow">
-                        <i class="fas fa-book-open text-blue-600 text-3xl mb-2"></i>
-                        <p class="font-semibold text-gray-800">হাদীস মুখস্থকরণ</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="bg-gradient-to-r from-green-900 to-green-800 text-white py-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-6">
-                <div class="flex items-center justify-center mb-4">
-                    <div class="bg-amber-500 p-2 rounded-lg mr-3">
-                        <i class="fas fa-mosque text-white"></i>
-                    </div>
-                    <h3 class="text-xl font-bold">মাদ্রাসা উম্মুল কুরা</h3>
-                </div>
-                <p class="text-green-200 mb-2">ইসলামিক শিক্ষা ও প্রশিক্ষণ কেন্দ্র</p>
-                <p class="text-green-200 mb-4">
-                    <i class="fas fa-map-marker-alt mr-2"></i>
-                    [আপনার মাদ্রাসার ঠিকানা এখানে লিখুন]
-                </p>
-                <p class="text-green-200 mb-4">
-                    <i class="fas fa-phone mr-2"></i>[যোগাযোগ নম্বর]
-                    <span class="mx-3">|</span>
-                    <i class="fas fa-envelope mr-2"></i>[ইমেইল ঠিকানা]
-                </p>
-            </div>
-            
-            <div class="border-t border-green-700 pt-4 text-center">
-                <p class="text-green-300 text-sm mb-2">
-                    "তোমরা জ্ঞান অর্জন কর, কেননা জ্ঞান অর্জন করা প্রতিটি মুসলিমের জন্য ফরজ"
-                </p>
-                <p class="text-green-400 text-sm">© ২০২৫ সর্বস্বত্ব সংরক্ষিত | Developed by Sahid Rahman</p>
-            </div>
-        </div>
-    </footer>
+</footer>
 {% endblock %}

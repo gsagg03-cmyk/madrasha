@@ -51,6 +51,7 @@ def create_app(config_name=None):
     from routes.debug import debug_bp
     from routes.documents import documents_bp
     from routes.junior_ustad import junior_ustad_bp  # Junior ustad management
+    from routes.masala import masala_bp  # Teacher stories/articles
     
     app.register_blueprint(auth_bp, url_prefix='/api/auth')
     app.register_blueprint(users_bp, url_prefix='/api/users')
@@ -70,6 +71,7 @@ def create_app(config_name=None):
     app.register_blueprint(debug_bp, url_prefix='/api/debug')
     app.register_blueprint(documents_bp, url_prefix='/api/documents')
     app.register_blueprint(junior_ustad_bp, url_prefix='/api/junior-ustad')
+    app.register_blueprint(masala_bp, url_prefix='/api/masala')
     
     # Register template routes
     from routes.templates import templates_bp

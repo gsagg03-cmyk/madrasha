@@ -131,3 +131,15 @@ def junior_ustad_simple():
         return redirect(url_for('templates.index'))
     
     return render_template('junior_ustad_simple.html', user=session['user'])
+
+@templates_bp.route('/masala')
+def masala_list():
+    """List all published masala posts"""
+    return render_template('masala_list.html')
+
+@templates_bp.route('/masala/<int:masala_id>')
+def masala_detail(masala_id):
+    """Single masala post detail page"""
+    from models import Masala
+    masala = Masala.query.filter_by(id=masala_id, is_published=True).first()
+    return render_template('masala_detail.html', masala_id=masala_id, masala=masala)

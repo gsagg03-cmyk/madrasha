@@ -1,0 +1,209 @@
+{% extends "base.html" %}
+
+{% block title %}{{ masala.title if masala else 'লোড হচ্ছে...' }} - মাদ্রাসা উম্মুল কুরা{% endblock %}
+
+{% block extra_head %}
+<!-- Facebook Open Graph Meta Tags -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="{{ masala.title if masala else '' }}">
+<meta property="og:description" content="{{ masala.excerpt if masala else '' }}">
+<meta property="og:image" content="{{ masala.image_url if masala and masala.image_url else '' }}">
+<meta property="og:url" content="{{ request.url }}">
+<meta property="article:published_time" content="{{ masala.created_at.isoformat() if masala else '' }}">
+<meta property="article:author" content="{{ masala.author.name if masala and masala.author else '' }}">
+<meta property="article:section" content="{{ masala.category if masala else '' }}">
+{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-gradient-to-b from-green-50 to-white" x-data="masalaDetailPage()">
+    <!-- Back Navigation -->
+    <div class="bg-white border-b sticky top-0 z-10 shadow-sm">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <a href="/masala" class="inline-flex items-center text-teal-600 hover:text-teal-800 font-semibold">
+                <i class="fas fa-arrow-left mr-2"></i>সব মাসআলা দেখুন
+            </a>
+        </div>
+    </div>
+
+    <!-- Article Container -->
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <article x-show="masala" class="bg-white rounded-xl shadow-lg overflow-hidden">
+            <!-- Featured Image -->
+            <div x-show="masala && masala.image_url" class="w-full h-96 overflow-hidden">
+                <img :src="masala?.image_url" :alt="masala?.title" class="w-full h-full object-cover">
+            </div>
+
+            <!-- Article Content -->
+            <div class="p-8 md:p-12">
+                <!-- Category Badge -->
+                <div x-show="masala && masala.category" class="mb-4">
+                    <span class="inline-block bg-teal-100 text-teal-800 px-4 py-2 rounded-full text-sm font-semibold" x-text="masala?.category"></span>
+                </div>
+
+                <!-- Title -->
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6" x-text="masala?.title"></h1>
+
+                <!-- Meta Info -->
+                <div class="flex flex-wrap items-center gap-6 text-gray-600 mb-8 pb-8 border-b">
+                    <div class="flex items-center">
+                        <i class="fas fa-user-circle text-2xl text-teal-600 mr-2"></i>
+                        <div>
+                            <div class="text-xs text-gray-500">লেখক</div>
+                            <div class="font-semibold" x-text="masala?.author_name"></div>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-calendar text-xl text-teal-600 mr-2"></i>
+                        <div>
+                            <div class="text-xs text-gray-500">প্রকাশিত</div>
+                            <div class="font-semibold" x-text="masala && masala.created_at ? new Date(masala.created_at).toLocaleDateString('bn-BD', {year: 'numeric', month: 'long', day: 'numeric'}) : ''"></div>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-eye text-xl text-teal-600 mr-2"></i>
+                        <div>
+                            <div class="text-xs text-gray-500">দেখা হয়েছে</div>
+                            <div class="font-semibold"><span x-text="masala?.views_count"></span> বার</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Excerpt -->
+                <div x-show="masala && masala.excerpt" class="bg-teal-50 border-l-4 border-teal-600 p-6 mb-8 rounded-r-lg">
+                    <p class="text-lg text-gray-700 italic" x-text="masala?.excerpt"></p>
+                </div>
+
+                <!-- Main Content -->
+                <div class="prose prose-lg max-w-none mb-12">
+                    <div x-html="masala?.content" class="text-gray-800 leading-relaxed whitespace-pre-wrap"></div>
+                </div>
+
+                <!-- Share Section -->
+                <div class="border-t pt-8">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">
+                        <i class="fas fa-share-alt mr-2 text-teal-600"></i>শেয়ার করুন
+                    </h3>
+                    <div class="flex flex-wrap gap-3">
+                        <!-- Facebook Share -->
+                        <button @click="shareOnFacebook()" class="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                            Facebook-এ শেয়ার করুন
+                        </button>
+
+                        <!-- Copy Link -->
+                        <button @click="copyLink()" class="flex items-center gap-2 bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+                            <i class="fas fa-link"></i>
+                            লিংক কপি করুন
+                        </button>
+
+                        <!-- WhatsApp Share -->
+                        <button @click="shareOnWhatsApp()" class="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+                            <i class="fab fa-whatsapp"></i>
+                            WhatsApp
+                        </button>
+                    </div>
+
+                    <!-- Copy Success Message -->
+                    <div x-show="showCopySuccess" x-transition class="mt-3 text-green-600 font-semibold">
+                        <i class="fas fa-check-circle mr-1"></i>লিংক কপি হয়েছে!
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Loading State -->
+        <div x-show="!masala && loading" class="text-center py-12">
+            <div class="inline-block animate-spin rounded-full h-12 w-12 border-4 border-teal-600 border-t-transparent"></div>
+            <p class="mt-4 text-gray-600">লোড হচ্ছে...</p>
+        </div>
+
+        <!-- Error State -->
+        <div x-show="!masala && !loading" class="bg-white rounded-xl shadow-lg p-12 text-center">
+            <i class="fas fa-exclamation-circle text-red-500 text-6xl mb-4"></i>
+            <h2 class="text-2xl font-bold text-gray-900 mb-2">মাসআলা পাওয়া যায়নি</h2>
+            <p class="text-gray-600 mb-6">এই মাসআলাটি খুঁজে পাওয়া যায়নি বা মুছে ফেলা হয়েছে।</p>
+            <a href="/masala" class="inline-block bg-teal-600 hover:bg-teal-700 text-white px-6 py-3 rounded-lg font-semibold">
+                সব মাসআলা দেখুন
+            </a>
+        </div>
+
+        <!-- Related Articles / Back to List -->
+        <div x-show="masala" class="mt-12 text-center">
+            <a href="/masala" class="inline-block text-teal-600 hover:text-teal-800 font-semibold text-lg">
+                <i class="fas fa-arrow-left mr-2"></i>আরো মাসআলা পড়ুন
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+function masalaDetailPage() {
+    return {
+        masala: null,
+        loading: true,
+        showCopySuccess: false,
+        masalaId: {{ masala_id }},
+
+        init() {
+            this.loadMasala();
+        },
+
+        async loadMasala() {
+            try {
+                this.loading = true;
+                const response = await fetch(`/api/masala/${this.masalaId}`);
+                const data = await response.json();
+                
+                if (data.success) {
+                    this.masala = data.data;
+                    // Update page title dynamically
+                    document.title = `${this.masala.title} - মাদ্রাসা উম্মুল কুরা`;
+                } else {
+                    console.error('Failed to load masala:', data.message);
+                }
+            } catch (error) {
+                console.error('Failed to load masala:', error);
+            } finally {
+                this.loading = false;
+            }
+        },
+
+        shareOnFacebook() {
+            const url = encodeURIComponent(window.location.href);
+            const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+            window.open(facebookUrl, '_blank', 'width=600,height=400');
+        },
+
+        shareOnWhatsApp() {
+            if (!this.masala) return;
+            const text = encodeURIComponent(`${this.masala.title}\n\n${this.masala.excerpt}\n\n${window.location.href}`);
+            const whatsappUrl = `https://wa.me/?text=${text}`;
+            window.open(whatsappUrl, '_blank');
+        },
+
+        async copyLink() {
+            try {
+                await navigator.clipboard.writeText(window.location.href);
+                this.showCopySuccess = true;
+                setTimeout(() => {
+                    this.showCopySuccess = false;
+                }, 3000);
+            } catch (error) {
+                console.error('Failed to copy link:', error);
+                // Fallback for older browsers
+                const textarea = document.createElement('textarea');
+                textarea.value = window.location.href;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                this.showCopySuccess = true;
+                setTimeout(() => {
+                    this.showCopySuccess = false;
+                }, 3000);
+            }
+        }
+    };
+}
+</script>
+{% endblock %}
