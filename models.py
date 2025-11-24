@@ -81,7 +81,7 @@ class User(db.Model):
     guardian_phone = db.Column(db.String(20), nullable=True)
     mother_name = db.Column(db.String(200), nullable=True)
     emergency_contact = db.Column(db.String(20), nullable=True)
-    sms_count = db.Column(db.Integer, default=0)
+    sms_count = db.Column(db.Integer, nullable=False, default=0)
     is_active = db.Column(db.Boolean, default=True)
     last_login = db.Column(db.DateTime, nullable=True)
     is_archived = db.Column(db.Boolean, default=False, nullable=False)
