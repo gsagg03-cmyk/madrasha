@@ -172,7 +172,7 @@ if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     debug = os.environ.get('DEBUG', 'False').lower() == 'true'
     
-    print(f"Starting Madrasha Ummul Qura Management System on port {port}")
+    print(f"Starting মাদরাসা উম্মুলকুরা Management System on port {port}")
     print(f"Debug mode: {debug}")
     print(f"Environment: {os.environ.get('FLASK_ENV', 'development')}")
     
